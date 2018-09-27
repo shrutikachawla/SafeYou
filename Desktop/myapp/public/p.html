@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="55450921035-l23s28q3unif9pa72hge8lsla2fnmnh6.apps.googleusercontent.com">
+
+</head>
+<body>
+<p>Hello</p>
+
+<div id='addhere'></div>
+
+<button id='addbtn'>Add fields</button>
+<div id="imagetag" style="width:500px;height:600px;">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+  $('#image').css({"background-image":profile.getImageUrl()}) // This is null if the 'email' scope is not present.
+}
+
+var fieldHTML = '<div><input type="text" name="field_name[]" value=""></div>';
+
+$('#addbtn').click(function(){
+        //Check maximum number of input fields
+        console.log("I am here")
+            $('#addhere').append(fieldHTML); //Add field html
+        }
+    );
+</script>
+</body>
+</html>

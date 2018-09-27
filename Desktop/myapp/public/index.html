@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="354769121502-ev23qgckn67l7s8v2uskpr5v7ucm5ep7.apps.googleusercontent.com">
+
+</head>
+<body>
+<p>Hello</p>
+
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<div id="imageDisplay" style="height:200px; width:200px"></div>
+
+<img src="" id="pp">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); 
+ var url="url('"+profile.getImageUrl()+"'"
+
+  document.getElementById('pp').src = profile.getImageUrl();
+  $('#imageDisplay').css({"background-image":url, "background-repeat":"no-repeat"});// This is null if the 'email' scope is not present.
+}
+
+
+</script>
+</body>
+</html>
